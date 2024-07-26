@@ -3,13 +3,20 @@ package repository
 import (
 	"context"
 	audit "cruda-audit-log/pkg/domain"
-	"fmt"
+	"go.mongodb.org/mongo-driver/mongo"
 )
 
 type Audit struct {
+	db *mongo.Database
+}
+
+func NewAudit(db *mongo.Database) *Audit {
+	return &Audit{
+		db: db,
+	}
 }
 
 func (r *Audit) Insert(ctx context.Context, item audit.LogItem) error {
-	fmt.Printf("INSERTED %+v", item)
-	return nil
+	_, err := r.db.Collection("logs").InsertOne(ctx, item)
+	return err
 }

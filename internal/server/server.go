@@ -19,8 +19,8 @@ func New(auditServer audit.AuditServiceServer) *Server {
 	}
 }
 
-func (s *Server) ListenAndServe(port string) error {
-	addr := fmt.Sprintf(":%s", port)
+func (s *Server) ListenAndServe(port int) error {
+	addr := fmt.Sprintf(":%d", port)
 
 	lis, err := net.Listen("tcp", addr)
 	if err != nil {
