@@ -1,4 +1,4 @@
-module cruda-audit-log
+module github.com/dewi911/cruda-audit-log
 
 go 1.22
 

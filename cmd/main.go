@@ -2,11 +2,11 @@ package main
 
 import (
 	"context"
-	"cruda-audit-log/internal/config"
-	"cruda-audit-log/internal/repository"
-	"cruda-audit-log/internal/server"
-	"cruda-audit-log/internal/service"
 	"fmt"
+	"github.com/dewi911/cruda-audit-log/internal/config"
+	"github.com/dewi911/cruda-audit-log/internal/repository"
+	"github.com/dewi911/cruda-audit-log/internal/server"
+	"github.com/dewi911/cruda-audit-log/internal/service"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 	"log"

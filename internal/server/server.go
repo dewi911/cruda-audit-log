@@ -1,8 +1,8 @@
 package server
 
 import (
-	audit "cruda-audit-log/pkg/domain"
 	"fmt"
+	audit "github.com/dewi911/cruda-audit-log/pkg/domain"
 	"google.golang.org/grpc"
 	"net"
 )

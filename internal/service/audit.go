@@ -2,7 +2,7 @@ package service
 
 import (
 	"context"
-	audit "cruda-audit-log/pkg/domain"
+	audit "github.com/dewi911/cruda-audit-log/pkg/domain"
 )
 
 type Repository interface {
