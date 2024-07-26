@@ -2,7 +2,7 @@ package server
 
 import (
 	"context"
-	"cruda-audit-log/pkg/models/audit"
+	audit "cruda-audit-log/pkg/domain"
 )
 
 type AuditService interface {

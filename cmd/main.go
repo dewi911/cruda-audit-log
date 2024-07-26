@@ -16,7 +16,7 @@ func main() {
 	auditSrv := server.NewAuditServer(auditService)
 	srv := server.New(auditSrv)
 
-	fmt.Println("starting server...", time.Now())
+	fmt.Println("starting server on 9000 ...", time.Now())
 
 	if err := srv.ListenAndServe("9000"); err != nil {
 		log.Fatal(err)

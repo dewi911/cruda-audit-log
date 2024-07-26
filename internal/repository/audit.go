@@ -2,14 +2,14 @@ package repository
 
 import (
 	"context"
-	"cruda-audit-log/internal/domain"
+	audit "cruda-audit-log/pkg/domain"
 	"fmt"
 )
 
 type Audit struct {
 }
 
-func (r *Audit) Insert(ctx context.Context, item domain.LogItem) error {
+func (r *Audit) Insert(ctx context.Context, item audit.LogItem) error {
 	fmt.Printf("INSERTED %+v", item)
 	return nil
 }

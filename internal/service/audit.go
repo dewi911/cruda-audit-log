@@ -2,12 +2,11 @@ package service
 
 import (
 	"context"
-	"cruda-audit-log/internal/domain"
-	"cruda-audit-log/pkg/models/audit"
+	audit "cruda-audit-log/pkg/domain"
 )
 
 type Repository interface {
-	Insert(ctx context.Context, item domain.LogItem) error
+	Insert(ctx context.Context, item audit.LogItem) error
 }
 
 type Audit struct {
@@ -21,7 +20,7 @@ func NewAudit(repo Repository) *Audit {
 }
 
 func (s *Audit) Insert(ctx context.Context, req *audit.LogRequest) error {
-	item := domain.LogItem{
+	item := audit.LogItem{
 		Action:    req.GetEntity().String(),
 		Entity:    req.GetEntity().String(),
 		EntityID:  req.GetEntityId(),

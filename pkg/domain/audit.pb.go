@@ -4,7 +4,7 @@
 // 	protoc        v5.27.2
 // source: proto/audit.proto
 
-package audit
+package domain
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
