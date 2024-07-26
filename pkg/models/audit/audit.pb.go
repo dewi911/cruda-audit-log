@@ -4,7 +4,7 @@
 // 	protoc        v5.27.2
 // source: proto/audit.proto
 
-package domain
+package audit
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -130,9 +130,9 @@ type LogRequest struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Action    LogRequest_Actions     `protobuf:"varint,1,opt,name=action,proto3,enum=audit.LogRequest_Actions" json:"action,omitempty"`
-	Entity    LogRequest_Entities    `protobuf:"varint,2,opt,name=entity,proto3,enum=audit.LogRequest_Entities" json:"entity,omitempty"`
-	EntityId  int64                  `protobuf:"varint,3,opt,name=entity_id,json=entityId,proto3" json:"entity_id,omitempty"`
+	Action   LogRequest_Actions  `protobuf:"varint,1,opt,name=action,proto3,enum=audit.LogRequest_Actions" json:"action,omitempty"`
+	Entity   LogRequest_Entities `protobuf:"varint,2,opt,name=entity,proto3,enum=audit.LogRequest_Entities" json:"entity,omitempty"`
+	EntityId int64               `protobuf:"varint,3,opt,name=entity_id,json=entityId,proto3" json:"entity_id,omitempty"`
 	Timestamp *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=timestamp,proto3" json:"timestamp,omitempty"`
 }
 

@@ -4,7 +4,7 @@
 // - protoc             v5.27.2
 // source: proto/audit.proto
 
-package domain
+package audit
 
 import (
 	context "context"

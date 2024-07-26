@@ -2,15 +2,15 @@ package server
 
 import (
 	"context"
-	"cruda-audit-log/internal/domain"
+	"cruda-audit-log/pkg/models/audit"
 )
 
 type AuditService interface {
-	Insert(ctx context.Context, req *domain.LogRequest) error
+	Insert(ctx context.Context, req *audit.LogRequest) error
 }
 
 type AuditServer struct {
-	domain.UnimplementedAuditServiceServer
+	audit.UnimplementedAuditServiceServer
 	service AuditService
 }
 
@@ -20,8 +20,8 @@ func NewAuditServer(service AuditService) *AuditServer {
 	}
 }
 
-func (h *AuditServer) Log(ctx context.Context, req *domain.LogRequest) (*domain.Empty, error) {
+func (h *AuditServer) Log(ctx context.Context, req *audit.LogRequest) (*audit.Empty, error) {
 	err := h.service.Insert(ctx, req)
 
-	return &domain.Empty{}, err
+	return &audit.Empty{}, err
 }

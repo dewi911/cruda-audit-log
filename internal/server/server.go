@@ -1,7 +1,7 @@
 package server
 
 import (
-	"cruda-audit-log/internal/domain"
+	"cruda-audit-log/pkg/models/audit"
 	"fmt"
 	"google.golang.org/grpc"
 	"net"
@@ -9,10 +9,10 @@ import (
 
 type Server struct {
 	grpcSrv     *grpc.Server
-	auditServer domain.AuditServiceServer
+	auditServer audit.AuditServiceServer
 }
 
-func New(auditServer domain.AuditServiceServer) *Server {
+func New(auditServer audit.AuditServiceServer) *Server {
 	return &Server{
 		grpcSrv:     grpc.NewServer(),
 		auditServer: auditServer,
@@ -27,7 +27,7 @@ func (s *Server) ListenAndServe(port string) error {
 		return err
 	}
 
-	domain.RegisterAuditServiceServer(s.grpcSrv, s.auditServer)
+	audit.RegisterAuditServiceServer(s.grpcSrv, s.auditServer)
 
 	if err := s.grpcSrv.Serve(lis); err != nil {
 		return err

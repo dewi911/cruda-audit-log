@@ -3,6 +3,7 @@ package service
 import (
 	"context"
 	"cruda-audit-log/internal/domain"
+	"cruda-audit-log/pkg/models/audit"
 )
 
 type Repository interface {
@@ -19,7 +20,7 @@ func NewAudit(repo Repository) *Audit {
 	}
 }
 
-func (s *Audit) Insert(ctx context.Context, req *domain.LogRequest) error {
+func (s *Audit) Insert(ctx context.Context, req *audit.LogRequest) error {
 	item := domain.LogItem{
 		Action:    req.GetEntity().String(),
 		Entity:    req.GetEntity().String(),
